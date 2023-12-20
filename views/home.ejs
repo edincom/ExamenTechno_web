@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Test yourself</title>
+    </head>
+    <body>
+        <h1>Test yourself</h1>
+
+        <label> <%= msg %></label>
+
+        <label>How do you say <%= translation %> ?</label>
+        <form action="/test/enter" method="POST">
+            <div class="field">
+                Your answer:
+                <div>
+                    <input type="text" name="word" value=""/><br />
+                </div>
+                <div>
+                    <input type="submit" value="Send" /><br />
+                </div>
+                
+            </div>
+        </form>
+        <a href="/vocab">See list of words</a>
+
+    </body>
+</html>

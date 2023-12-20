@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Liste de vocabulaire</title>
+        <link rel="stylesheet" href="/css/style.css"/>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    </head>
+    <body>
+        <h1>Vocabulary</h1>
+        <h2>List of words</h2>
+
+            <table style="width:100%">
+                <tr>
+                    <th>Word</th>
+                    <th>Translation</th>
+                    <th>Success Rate in %</th>
+                    <th>Action</th>
+
+                </tr>
+                <% for (let i = 0; i<ListeofVoc.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= ListeofVoc[i]["word"] %> 
+                    </td>
+                    <td>
+                        <%= ListeofVoc[i]["translation"] %> 
+                    </td>
+                    <td>
+                        <%= ListeofVoc[i]["success"]/ListeofVoc[i]["attempt"] * 100 %>
+                    </td>
+                    <td>
+                        <a href="/vocab/delete/<%= ListeofVoc[i]["word"] %>">Delete</a>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+
+        <h2>Add a new word</h2>
+        <form action="/vocab/add" method="POST">
+            <div class="field">
+                Word:
+                <div>
+                    <input type="text" name="word" value=""/><br />
+                </div>
+                Translation:
+                <div>
+                    <input type="text" name="translation" value=""/><br />
+                </div>
+                <div>
+                    <input type="submit" value="Save" /><br />
+                </div>
+                
+            </div>
+        </form>
+
+
+    </body>
+</html>
